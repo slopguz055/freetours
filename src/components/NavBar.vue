@@ -13,6 +13,7 @@ const props = defineProps({
             <ul class="navbar-nav mr-auto">
                 <RouterLink to="/">Index</RouterLink>
                 <RouterLink to="/users">Gestión de Usuarios</RouterLink>
+                <RouterLink to="/crearEditar">Crear/Editar rutas</RouterLink>
             </ul>
         </div>
     </nav>

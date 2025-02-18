@@ -21,6 +21,7 @@ const logout = () => {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <RouterLink to="/users">Gestión de Usuarios</RouterLink>
+            <RouterLink to="/crearEditarRutas">Crear/Editar Rutas</RouterLink>
           </ul>
         </div>
         <div class="d-flex align-items-center">

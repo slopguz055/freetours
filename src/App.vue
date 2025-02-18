@@ -13,7 +13,7 @@ const handleSesionIniciada = (user) => {
 
 const logout = () => {
   usuario.value = null;
-  // Aquí puedes agregar la lógica para cerrar sesión, como eliminar tokens, etc.
+  router.push('/');
 };
 
 </script>
