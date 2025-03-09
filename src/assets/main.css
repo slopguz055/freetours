@@ -1,0 +1,41 @@
+@font-face {
+	font-family: "Montserrat";
+	src: url("@/assets/fuentes/Montserrat-VariableFont_wght.ttf")
+		format("truetype");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Montserrat;
+}
+
+body {
+	font-size: 1rem;
+}
+
+p,
+.card-text {
+	font-size: 1.2rem;
+}
+
+.bg-red {
+	background-color: #ed3440;
+	border-radius: 3px;
+}
+
+.card-90 {
+	width: 90%;
+}
+
+.loading-message {
+	font-size: 1.5em;
+	color: grey;
+}
+
+#map {
+	height: 400px;
+	width: 100%;
+	z-index: 1;
+}

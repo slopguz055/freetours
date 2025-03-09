@@ -18,10 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             ru.fecha AS ruta_fecha, 
             ru.hora AS ruta_hora, 
             ru.latitud AS ruta_latitud, 
-            ru.longitud AS ruta_longitud
+            ru.longitud AS ruta_longitud,
+            COALESCE(v.puntuacion, NULL) AS valoracion,
+            COALESCE(v.comentario, NULL) AS comentario
+
         FROM reservas r
         JOIN usuarios u ON r.cliente_id = u.id
         JOIN rutas ru ON r.ruta_id = ru.id
+        LEFT JOIN valoraciones v ON r.ruta_id = v.ruta_id AND r.cliente_id = v.cliente_id
     ";
 
     // Si se especifica un email, filtrar por usuario_email

@@ -2,24 +2,39 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Header from './components/Header.vue';
-import NavBar from './components/NavBar.vue';
-import Footer from './components/Footer.vue'; // Importa el componente Footer
+import Footer from './components/Footer.vue';
 
-const usuario = ref(null);
+const usuario = ref(JSON.parse(localStorage.getItem('usuario'))||null);
 
+const router = useRouter();
+
+// Viene de "Login"
 const handleSesionIniciada = (user) => {
-  usuario.value = user;
+ usuario.value = user;
+ localStorage.setItem('usuario', JSON.stringify(user));
 };
 
+
+// Viene de "Header"
 const logout = () => {
-  usuario.value = null;
-  router.push('/');
+ usuario.value = null;
+ router.push('/');
+ localStorage.removeItem('usuario');
 };
+
 
 </script>
 
 <template>
-  <Header :usuario="usuario" @logout="logout" />
-  <router-view @sesionIniciada="handleSesionIniciada" />
-  <Footer />
+  <div id="iu" class="d-flex flex-column min-vh-100">
+    <Header :usuario="usuario" @logout="logout" />
+    <router-view :usuario="usuario" @sesionIniciada="handleSesionIniciada" />
+    <Footer />
+  </div>
 </template>
+
+<style scoped>
+#iu {
+  padding-bottom: 2rem; 
+}
+</style>
